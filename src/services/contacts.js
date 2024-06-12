@@ -1,4 +1,6 @@
+import createHttpError from 'http-errors';
 import { ContactsCollection } from '../db/models/contact.js';
+import mongoose from 'mongoose';
 
 export const getAllContacts = async () => {
   const contacts = await ContactsCollection.find();
@@ -16,6 +18,10 @@ export const createContact = async (payload) => {
 };
 
 export const updateContact = async (contactId, payload, options = {}) => {
+  if (!mongoose.Types.ObjectId.isValid(contactId)) {
+    createHttpError(400, 'Contact not found');
+    return;
+  }
   const rawResult = await ContactsCollection.findOneAndUpdate(
     { _id: contactId },
     payload,
@@ -34,7 +40,11 @@ export const updateContact = async (contactId, payload, options = {}) => {
   };
 };
 export const deleteContact = async (contactId) => {
-  const contact = await StudentsCollection.findOneAndDelete({
+  if (!mongoose.Types.ObjectId.isValid(contactId)) {
+    createHttpError(400, 'Contact not found');
+    return;
+  }
+  const contact = await ContactsCollection.findOneAndDelete({
     _id: contactId,
   });
 
