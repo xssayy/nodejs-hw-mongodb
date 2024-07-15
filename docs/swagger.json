@@ -11,10 +11,10 @@
   },
   "servers": [
     {
-      "url": "<http://localhost:3000>"
+      "url": "http://localhost:3000"
     },
     {
-      "url": "<https://nodejs-goit-hw-mongodb.onrender.com>"
+      "url": "https://nodejs-goit-hw-mongodb.onrender.com"
     }
   ],
   "tags": [

@@ -20,7 +20,7 @@ parameters:
     in: query
     schema:
       type: string
-      example: 'age'
+      example: 'name'
     description: "All contact's fields can be mentioned. Default value - _id"
   - name: sortOrder
     in: query
