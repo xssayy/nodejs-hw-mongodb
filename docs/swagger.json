@@ -112,7 +112,7 @@
           "description": "Data to patch the contact",
           "required": true,
           "content": {
-            "application/json": {
+            "multipart/form-data": {
               "schema": {
                 "type": "object",
                 "properties": {
@@ -142,7 +142,8 @@
                   },
                   "photo": {
                     "type": "string",
-                    "example": "<https://res.cloudinary.com/uqwgdu/image/upload/image.png>"
+                    "example": "<https://res.cloudinary.com/uqwgdu/image/upload/image.png>",
+                    "format": "binary"
                   }
                 }
               }
